@@ -19,7 +19,7 @@ install:
   - shippable_retry pip install -r requirements.txt
   
 script: 
-  - python tests/test.py unit --with-coverage --cover-package=tests --with-xunit --xunit-file=shippable/testresults/nosetests.xml
+  - python tests/test.py default --with-coverage --cover-package=tests --with-xunit --xunit-file=shippable/testresults/nosetests.xml
   #- nosetests tests/integration/*/*.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
 #  - which python && coverage run --branch tests/test.py unit
   - coverage xml -o shippable/codecoverage/coverage.xml 
