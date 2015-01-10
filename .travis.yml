@@ -1,8 +1,8 @@
 language: python
 python:
   #- "2.6"
-  #- "2.7"
-  - "3.3"
+  - "2.7"
+  #- "3.3"
   #- "3.4"
   #- "pypy"
 before_install:
@@ -19,10 +19,10 @@ install:
   - shippable_retry pip install -r requirements.txt
   
 script: 
-  - python tests/test.py unit
+  - python tests/test.py unit --with-xunit --xunit-file=shippable/testresults/nosetests.xml
   #- nosetests tests/integration/*/*.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
   - which python && coverage run --branch tests/test.py unit
   - which python && coverage xml -o shippable/codecoverage/coverage.xml tests/test.py unit
   
-  archive: true
-parallelized_test : true
+archive: true
+#parallelized_test : true
