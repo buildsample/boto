@@ -11,9 +11,9 @@ before_install:
   - sudo apt-get --reinstall install -qq language-pack-en language-pack-de
   - sudo apt-get install swig
 install:
-  - if [[ $TRAVIS_PYTHON_VERSION == 2* ]]; then travis_retry pip install -r requirements-py26.txt; fi
+  - travis_retry pip install -r requirements-py26.txt
   - travis_retry pip install -r requirements.txt
 
-script: python tests/test.py default
+script: python tests/test.py --with-coverage -c tests/db
 #script: nosetests tests/
 #cache: true
