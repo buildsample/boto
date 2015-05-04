@@ -27,6 +27,8 @@ script:
   - coverage xml -o shippable/codecoverage/coverage.xml 
   
 archive: true
+
 #parallelized_test : true
 #cache: true
-build_image: shippable/minv2:beta
+#build_image: shippable/minv2:beta
+
